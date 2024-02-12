@@ -29,3 +29,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.favoriteIcon:hover{
+  cursor: pointer;
+}

@@ -9,7 +9,8 @@ export default defineConfig({
       '@components': '/src/components',
       '@pages': '/src/pages',
       '@Axios':'/src/Axios',
-      '@redux':'/src/redux'
+      '@redux':'/src/redux',
+      '@context':'/src/context',
     },
   },
 })
