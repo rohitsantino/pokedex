@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './Navbar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faHeart, faBars } from '@fortawesome/free-solid-svg-icons';
-import { dropdownContext } from '@context/DropdownContext';
 
 export default function Navbar() {
-    const[dropdownVal,setDropdownVal]=useContext(dropdownContext);
+    const[dropdownVal,setDropdownVal]=useState("filterby");
     const handleDropdownVal=(e)=>{
         setDropdownVal(e.target.value);
         console.log(e.target.value);

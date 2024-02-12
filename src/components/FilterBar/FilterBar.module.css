@@ -1,0 +1,8 @@
+.filterMenu {
+    padding: 23px;
+
+    select {
+        position: sticky;
+        top: 59px;
+    }
+}
