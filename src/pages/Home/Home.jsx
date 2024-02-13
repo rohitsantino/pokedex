@@ -22,7 +22,6 @@ export default function Home() {
 
         setPokemons([...poks]);
         setPokemonsData([...poks]);
-        console.log( poks);
       });
     } catch (error) {
       console.log(error);
@@ -32,7 +31,6 @@ export default function Home() {
   const handleFilterVal = (val) => {
     if (val == "filterBy") {
       setPokemonsData([...pokemons]);
-      console.log(pokemons);
     } else {
       const sortedPokemonsName = pokemonsData.sort((a, b) => a.name.localeCompare(b.name));
       setPokemonsData([...sortedPokemonsName]);
@@ -42,7 +40,6 @@ export default function Home() {
   const handleInputChange = (val) => {
     if (!val.trim()) { setPokemonsData([...pokemons]) }
     else {
-      console.log(val);
       const searchedPokemons = pokemons.filter(pokemonData => {
         return pokemonData.name.toLowerCase().includes(val.toLowerCase());
       });
