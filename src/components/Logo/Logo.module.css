@@ -2,3 +2,8 @@
     font-size: 26px;
     font-weight: 900;
 }
+
+.logo:hover{
+    cursor: pointer;
+    scale: 1.1;
+}

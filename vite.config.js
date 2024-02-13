@@ -11,6 +11,12 @@ export default defineConfig({
       '@Axios':'/src/Axios',
       '@redux':'/src/redux',
       '@context':'/src/context',
+      '@routes':'/src/routes',
     },
   },
+  esbuild: {
+    include: /\.[jt]sx?$/,
+    exclude: [],
+    loader: 'jsx',
+  }
 })

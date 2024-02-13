@@ -1,0 +1,32 @@
+.pokemonCard {
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    margin: 16px;
+  }
+  
+  .pokemonCard img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 8px;
+  }
+  
+  .pokemonName {
+    font-weight: bold;
+  }
+  
+  .pokemonCard:hover {
+    transform: translateY(-5px) scale(1.1);
+  }
+  
+  .favoriteIcon {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .favoriteIcon:hover{
+    cursor: pointer;
+  }

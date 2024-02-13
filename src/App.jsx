@@ -1,11 +1,11 @@
-import './App.css'
-import {Home} from '@pages/Home'
-import {Favorites} from '@pages/Favorites'
+import './App.css';
+import {RouteHandler} from '@routes';
+
 
 function App() {
   return (
     <>
-      <Home/>
+      <RouteHandler/>
     </>
   )
 }

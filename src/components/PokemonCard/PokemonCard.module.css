@@ -1,6 +1,5 @@
 .pokemonCard {
   width: 220px;
-  /* Adjust as needed */
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -11,9 +10,7 @@
 
 .pokemonCard img {
   width: 100px;
-  /* Adjust as needed */
   height: 100px;
-  /* Adjust as needed */
   margin-bottom: 8px;
 }
 
