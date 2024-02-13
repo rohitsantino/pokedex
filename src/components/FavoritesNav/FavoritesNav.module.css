@@ -7,20 +7,9 @@
     color: #fff;
     position: sticky;
     top: 0;
-    min-width: 95vw;
+    min-width: 97vw;
 }
 
-.searchBar {
-    display: flex;
-    align-items: center;
-}
-
-.searchBar input[type="text"] {
-    padding: 8px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
-}
 
 .navRight {
     display: flex;
