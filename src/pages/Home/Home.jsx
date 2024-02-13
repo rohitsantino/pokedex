@@ -22,7 +22,7 @@ export default function Home() {
 
         setPokemons([...poks]);
         setPokemonsData([...poks]);
-        console.log(newData, poks);
+        console.log( poks);
       });
     } catch (error) {
       console.log(error);
@@ -38,11 +38,23 @@ export default function Home() {
       setPokemonsData([...sortedPokemonsName]);
     }
   }
+
+  const handleInputChange = (val) => {
+    if (!val.trim()) { setPokemonsData([...pokemons]) }
+    else {
+      console.log(val);
+      const searchedPokemons = pokemons.filter(pokemonData => {
+        return pokemonData.name.toLowerCase().includes(val.toLowerCase());
+      });
+      setPokemonsData([...searchedPokemons]);
+    }
+  }
+
   useEffect(() => { loadData() }, []);
 
   return (
     <>
-      <Navbar />
+      <Navbar inputVal={handleInputChange} />
       <div className={styles.homeDashboard}>
         <FilterBar filterVal={handleFilterVal} />
         <Pokemons pokemons={pokemonsData} />

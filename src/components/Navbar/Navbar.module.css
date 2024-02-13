@@ -31,6 +31,11 @@
     margin-right: 20px;
 }
 
+.favoriteBadge:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .badge {
     position: absolute;
     top: -10px;
@@ -40,10 +45,6 @@
     border-radius: 50%;
     padding: 5px;
     font-size: 10px;
-}
-
-.badge:hover {
-    cursor: pointer;
 }
 
 .dropdown {
