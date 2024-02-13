@@ -5,12 +5,12 @@ import {FavPokemons} from '@components/FavPokemons';
 import { useSelector } from 'react-redux';
 
 export default function Favorites() {
-  const favs=useSelector(state=>state.favorites.favorites);
-  console.log(favs);
+  const favPokemons=useSelector(state=>state.favorites.favorites);
+  console.log(favPokemons);
   return (
     <div>
       <FavoritesNav/>
-      <FavPokemons favPokemons={pokemons}/>
+      <FavPokemons favPokemons={favPokemons}/>
     </div>
   )
 }
