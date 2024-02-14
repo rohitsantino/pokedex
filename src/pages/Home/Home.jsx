@@ -11,7 +11,7 @@ export default function Home() {
   const [pokemonsData, setPokemonsData] = useState([]);
   const loadData = async () => {
     try {
-      await axios.get('/pokemon/?offset=0&limit=10/').then(res => {
+      await axios.get('/pokemon/?offset=0&limit=8/').then(res => {
         const poks = res.data.results.map((pokemon, index) => {
           return {
             id: index + 1,

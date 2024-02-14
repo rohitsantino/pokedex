@@ -20,7 +20,7 @@
 }
 
 .pokemonCard:hover {
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px) scale(1.05);
 }
 
 .favoriteIcon {
