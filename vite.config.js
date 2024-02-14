@@ -10,7 +10,6 @@ export default defineConfig({
       '@pages': '/src/pages',
       '@Axios':'/src/Axios',
       '@redux':'/src/redux',
-      '@context':'/src/context',
       '@routes':'/src/routes',
     },
   },

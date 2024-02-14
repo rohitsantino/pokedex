@@ -25,7 +25,6 @@ export default function Home() {
         });
         if (poks.length === 0) {
           observerRef.current.disconnect();
-          console.log("ended");
         }
         setPokemons([...pokemons, ...poks]);
         setPokemonsData([...pokemons, ...poks]);
@@ -62,7 +61,6 @@ export default function Home() {
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(entries => {
-      console.log(entries, "dfghjk")
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           loadData();
