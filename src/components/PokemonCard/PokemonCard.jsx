@@ -12,7 +12,7 @@ export default function PokemonCard({ pokemon }) {
     const favorites = useSelector(state => state.favorites.favorites);
 
     useEffect(() => {
-        setIsFavorite(favorites.some(favorite => favorite.id === pokemon.id));
+        setIsFavorite(favorites.some(favorite => favorite.name === pokemon.name));
     }, [favorites, pokemon]);
 
     const toggleFavorite = () => {

@@ -11,6 +11,7 @@ export default function Home() {
   const [pokemonsData, setPokemonsData] = useState([]);
   const [initialCount, setInitialCount] = useState(0);
   const targetRef = useRef(null);
+  const observerRef=useRef();
 
   const loadData = async () => {
     try {
@@ -22,7 +23,10 @@ export default function Home() {
             image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
           }
         });
-
+        if(poks.length===0){
+          observerRef.current.disconnect();
+          console.log("ended");
+        }
         setPokemons([...pokemons,...poks]);
         setPokemonsData([...pokemons,...poks]);
         setInitialCount(prevInitialCount => prevInitialCount + 8);
@@ -47,12 +51,13 @@ export default function Home() {
       const searchedPokemons = pokemons.filter(pokemonData => {
         return pokemonData.name.toLowerCase().includes(val.toLowerCase());
       });
+      console.log(searchedPokemons);
       setPokemonsData([...searchedPokemons]);
     }
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    observerRef.current = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           loadData();
@@ -61,9 +66,9 @@ export default function Home() {
     }, { threshold: 0.25 });
 
     if (targetRef.current) {
-      observer.observe(targetRef.current);
+      observerRef.current.observe(targetRef.current);
     }
-    return () => observer.disconnect()
+    return () => observerRef.current.disconnect()
   }, [initialCount]);
 
   return (
