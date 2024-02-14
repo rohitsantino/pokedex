@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { axios } from '@Axios';
 import { Navbar } from '@components/Navbar';
 import { Pokemons } from '@components/Pokemons';
@@ -9,9 +9,12 @@ import styles from './Home.module.css';
 export default function Home() {
   const [pokemons, setPokemons] = useState([]);
   const [pokemonsData, setPokemonsData] = useState([]);
+  const [initialCount, setInitialCount] = useState(0);
+  const targetRef = useRef(null);
+
   const loadData = async () => {
     try {
-      await axios.get('/pokemon/?offset=0&limit=8/').then(res => {
+      await axios.get(`/pokemon/?offset=${initialCount}&limit=8/`).then(res => {
         const poks = res.data.results.map((pokemon, index) => {
           return {
             id: index + 1,
@@ -20,8 +23,9 @@ export default function Home() {
           }
         });
 
-        setPokemons([...poks]);
-        setPokemonsData([...poks]);
+        setPokemons([...pokemons,...poks]);
+        setPokemonsData([...pokemons,...poks]);
+        setInitialCount(prevInitialCount => prevInitialCount + 8);
       });
     } catch (error) {
       console.log(error);
@@ -47,7 +51,20 @@ export default function Home() {
     }
   }
 
-  useEffect(() => { loadData() }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadData();
+        }
+      })
+    }, { threshold: 0.25 });
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+    return () => observer.disconnect()
+  }, [initialCount]);
 
   return (
     <>
@@ -56,6 +73,7 @@ export default function Home() {
         <FilterBar filterVal={handleFilterVal} />
         <Pokemons pokemons={pokemonsData} />
       </div>
+      <div ref={targetRef} />
     </>
   )
 }
